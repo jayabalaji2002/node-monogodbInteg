@@ -12,6 +12,8 @@ const validatePhoneNumber = (phoneNumber) => {
     return phoneRegex.test(phoneNumber);
 };
 
+
+
 module.exports = {
     validateEmail,
     validatePhoneNumber
