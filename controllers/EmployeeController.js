@@ -1,3 +1,8 @@
+// Importing Validation.js
+const { validateEmail, validatePhoneNumber } = require('../validation');
+
+
+
 const Employee = require('../models/Employee')
 
 // Show the data of list of employees from models
@@ -34,6 +39,9 @@ const show = (req,res,next)=>{
 
 // adding new employee
 const store = (req,res,next) =>{
+
+    const { name, designation, email, phone, age, avatar } = req.body;
+
     let employee = new Employee({
         name:req.body.name,
         designation:req.body.designation,
@@ -42,6 +50,18 @@ const store = (req,res,next) =>{
         age:req.body.age,
         avatar:req.body.avatar
     })
+
+
+    // Validate email and phone number before saving
+    if (!validateEmail(email)) {
+        return res.json({ message: 'Invalid email' });
+    }
+
+    if (!validatePhoneNumber(phone)) {
+        return res.json({ message: 'Invalid phone number' });
+    }
+
+
     if(req.files){
         let path = ''
         req.files.forEach(function(files,index,arr){
