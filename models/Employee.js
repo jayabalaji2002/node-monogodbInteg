@@ -9,13 +9,13 @@ const employeeSchema = new schema({
     designation: {
         type: String
     },
-    email: { type: String},
-    age: { type: Number},
-    phone:{type:Number},
-    avatar:{
-        type:String
+    email: { type: String },
+    age: { type: Number },
+    phone: { type: Number },
+    avatar: {
+        type: String
     }
-},{timeStamps:true});
+}, { timeStamps: true });
 
 const Employee = mongoose.model('Employee', employeeSchema);
 
