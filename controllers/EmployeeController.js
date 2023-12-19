@@ -58,7 +58,7 @@ const store = (req, res, next) => {
   }
 
   // Check if age is less than 20
-  if (age >= 20) {
+  if (age > 20) {
     return res.json({ message: "Employee must be under 20 years old" });
   }
 
